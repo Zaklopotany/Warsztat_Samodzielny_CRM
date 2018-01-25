@@ -1,15 +1,11 @@
 package pl.coderslab.entity;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -25,11 +21,11 @@ public class Tasks {
 	private TaskStatus TaskStatus;
 	@OneToOne
 	private TaskPriority taskPriority;
-	@OneToMany
-	@JoinColumn(name="user_id")
-	private List<Users> users;
+	@OneToOne
+	@JoinColumn(name = "user_id")
+	private Users users;
 
-	//get set
+	// get set
 	public Long getId() {
 		return id;
 	}
@@ -78,11 +74,11 @@ public class Tasks {
 		this.taskPriority = taskPriority;
 	}
 
-	public List<Users> getUsers() {
+	public Users getUsers() {
 		return users;
 	}
 
-	public void setUsers(List<Users> users) {
+	public void setUsers(Users users) {
 		this.users = users;
 	}
 

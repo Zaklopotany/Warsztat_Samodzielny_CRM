@@ -1,0 +1,81 @@
+.center {
+    margin: auto;
+    width: 50%;
+    height: 50%;
+    border: 3px solid black;
+    padding: 10px;
+}
+
+.center2 {
+    margin: auto;	
+    width: 90%;	
+    padding: 10px;
+}
+.text-center-my {
+	text-align: center;
+}
+
+.error {
+	background-color: red;
+	color: white;
+}
+#pageheader {
+	background-color:#ff7ae2;
+}
+textarea {
+     width: 100%;
+     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+     box-sizing: border-box;         /* Opera/IE 8+ */
+}
+#rcorners1 {
+    border-radius: 25px;
+    background: #b8e8f9;
+    padding: 20px;
+    width: 100%;
+    height: auto;
+    margin-bottom:1em;
+}
+
+#commentsId {
+    border-radius: 25px;
+    background: #4fd1cc;
+    padding: 20px;
+    width: 60%;
+    height: auto;
+    margin-bottom:1em;
+    float:right;
+}
+#addComment {
+    border-radius: 25px;
+    background: #65acd8;
+    padding: 20px;
+    width: 100%;
+    height: auto;
+    margin-bottom:1em;
+}
+
+table.ex1 {
+    table-layout: auto;
+}
+table.ex2 {
+    table-layout: auto;
+    width:60%;
+}
+ul {
+  list-style-type: none;
+}
+
+#button-panel {
+	display:inline-block;
+ 	float:left;
+}
+
+hr.style1{
+	border-top: 2px solid #8c8b8b;
+}
+
+
+
+
+

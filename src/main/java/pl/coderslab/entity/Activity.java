@@ -14,8 +14,9 @@ public class Activity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private LocalDateTime dateTime = LocalDateTime.now();
-	private String action;
+	private LocalDateTime created = LocalDateTime.now();
+	private String header;
+	private String description;
 
 	@OneToOne
 	@JoinColumn(name = "user_id")
@@ -38,12 +39,28 @@ public class Activity {
 		this.id = id;
 	}
 
-	public LocalDateTime getDateTime() {
-		return dateTime;
+	public LocalDateTime getCreated() {
+		return created;
 	}
 
-	public void setDateTime(LocalDateTime dateTime) {
-		this.dateTime = dateTime;
+	public void setCreated(LocalDateTime created) {
+		this.created = created;
+	}
+
+	public String getHeader() {
+		return header;
+	}
+
+	public void setHeader(String header) {
+		this.header = header;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public Users getUser() {
@@ -52,14 +69,6 @@ public class Activity {
 
 	public void setUser(Users user) {
 		this.user = user;
-	}
-
-	public String getAction() {
-		return action;
-	}
-
-	public void setAction(String action) {
-		this.action = action;
 	}
 
 	public Projects getProjects() {
@@ -77,5 +86,6 @@ public class Activity {
 	public void setTasks(Tasks tasks) {
 		this.tasks = tasks;
 	}
+
 
 }

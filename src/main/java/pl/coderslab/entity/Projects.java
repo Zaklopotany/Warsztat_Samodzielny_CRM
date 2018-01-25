@@ -1,14 +1,15 @@
-	package pl.coderslab.entity;
+package pl.coderslab.entity;
 
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Transient;
 
 @Entity
 public class Projects {
@@ -19,14 +20,17 @@ public class Projects {
 	private String description;
 	// walidacja
 	private String site;
-	private String identifier;	
+	private LocalDateTime created = LocalDateTime.now();
+	private String identifier;
 	@ManyToMany(mappedBy = "projects")
 	Set<Users> users = new HashSet<>();
 	private boolean activity;
-	
+	@Transient
+	private int tasksNumber;
+	@Transient
+	private int usersNumber;
 
-	
-	//get set
+	// get set
 	public Long getId() {
 		return id;
 	}
@@ -35,15 +39,41 @@ public class Projects {
 		this.id = id;
 	}
 
+	public int getTasksNumber() {
+		return tasksNumber;
+	}
+
+	public Projects setTasksNumber(int tasksNumber) {
+		this.tasksNumber = tasksNumber;
+		return this;
+	}
+
+	public int getUsersNumber() {
+		return usersNumber;
+	}
+
+	public Projects setUsersNumber(int usersNumber) {
+		this.usersNumber = usersNumber;
+		return this;
+	}
+
 	public String getName() {
 		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
-		//indentifier setter 
+		// indentifier setter
 		String regex = "[ąśćżłóęńź\\s]";
 		this.identifier = name.replaceAll(regex, "-");
+	}
+
+	public LocalDateTime getCreated() {
+		return created;
+	}
+
+	public void setCreated(LocalDateTime created) {
+		this.created = created;
 	}
 
 	public String getSite() {
@@ -78,10 +108,9 @@ public class Projects {
 		return identifier;
 	}
 
-	public void setDescription(String description) {
+	public Projects setDescription(String description) {
 		this.description = description;
+		return this;
 	}
-	
-	
 
 }
