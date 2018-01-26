@@ -17,7 +17,7 @@
 	<t:mainLayout>
 		<jsp:body>
 			<div class="center2">
-				<p class="text-center-my">${project.getName()}</p>
+				<p class="text-center-my"><b>${project.getName()}</b></p>
 				<hr>
 				<b>Id: </b><a>${project.getIdentifier()}</a><br>
 				<b>Created: </b><a>${project.getCreated().toString().substring(0,19)}</a><br>
@@ -32,12 +32,26 @@
 					</div>
 				</div>
 				<div>
-				<p>User Involved: </p>
+					<a><b>Users: </b></a>
+					<table style="width:60%">
+						<tbody>
+							<c:forEach items="${usersList}" var="ul">
+								<tr>
+									<td>
+										<a>Login: ${ul.getLogin()}</a>
+									</td>
+									<td>								
+										<a href='<c:url value='/user/showUserDetails/${ul.getId()}'/>'>More details...</a><br>
+									</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
 				</div>
 				<hr>
 				<div>
-					<a class="w3-btn w3-blue w3-border w3-round-large">Show Users</a>
-					<a class="w3-btn w3-blue w3-border w3-round-large">Show Tasks</a>
+					<a class="w3-btn w3-blue w3-border w3-round-large">Show Users Details</a>
+					<a href="<c:url value="/task/showProjectTasks/${project.getId()}"/>" class="w3-btn w3-blue w3-border w3-round-large">Show Tasks</a>
 					<a class="w3-btn w3-green w3-border w3-round-large">Edit Project</a>
 				</div>
 				

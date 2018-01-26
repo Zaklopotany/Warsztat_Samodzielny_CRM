@@ -52,11 +52,9 @@
 						</div>
 						<hr>
 						<div>
-							<a
-							href="<c:url value="/project/showProjectDetails/${pr.getId()}"/>"
-							class=" w3-btn w3-blue w3-border w3-round-large">Show Details</a>
+							<a href="<c:url value="/project/showProjectDetails/${pr.getId()}"/>" class="w3-btn w3-blue w3-border w3-round-large">Show Details</a>
 							<a class="w3-btn w3-blue w3-border w3-round-large">Show Users</a>
-							<a class="w3-btn w3-blue w3-border w3-round-large">Show Tasks</a>
+							<a href="<c:url value="/task/showProjectTasks/${pr.getId()}"/>" class="w3-btn w3-blue w3-border w3-round-large">Show Tasks</a>
 							<a class="w3-btn w3-green w3-border w3-round-large">Edit Project</a>
 						</div>
 					</div>

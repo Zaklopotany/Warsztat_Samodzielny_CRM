@@ -17,6 +17,7 @@ import pl.coderslab.entity.Projects;
 import pl.coderslab.repository.ActivityRepository;
 import pl.coderslab.repository.ProjectsRepository;
 import pl.coderslab.repository.TasksRepository;
+import pl.coderslab.repository.UsersRepository;
 
 @Controller
 @RequestMapping("/project")
@@ -28,6 +29,8 @@ public class ProjectsController {
 	ActivityRepository activRep;
 	@Autowired
 	TasksRepository taskRep;
+	@Autowired
+	UsersRepository usersRep;
 
 	@ModelAttribute(name = "activityList")
 	public List<Activity> getActivitiesList() {
@@ -72,6 +75,7 @@ public class ProjectsController {
 		tempProject.setTasksNumber(taskRep.countingByProjectId(tempProject.getId()));
 		tempProject.setUsersNumber(projectsRep.countingByProjectId(tempProject.getId()));
 		
+		model.addAttribute("usersList", usersRep.getProjectUsers(id));
 		model.addAttribute("project", tempProject);
 		return "project/projectDetails";
 	}

@@ -29,7 +29,11 @@ public class Projects {
 	private int tasksNumber;
 	@Transient
 	private int usersNumber;
-
+	
+	
+	
+	
+	
 	// get set
 	public Long getId() {
 		return id;
@@ -92,7 +96,7 @@ public class Projects {
 		this.users = users;
 	}
 
-	public boolean isActivity() {
+	public boolean setActivity() {
 		return activity;
 	}
 
@@ -112,5 +116,16 @@ public class Projects {
 		this.description = description;
 		return this;
 	}
+	
+	@Override
+	public String toString() {
+		return this.getName();
+	}
+
+	public void setIdentifier(String identifier) {
+		this.identifier = identifier;
+	}
+	
+	
 
 }

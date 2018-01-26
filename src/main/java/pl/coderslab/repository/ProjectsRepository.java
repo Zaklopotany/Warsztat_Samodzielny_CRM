@@ -10,8 +10,8 @@ import pl.coderslab.entity.Projects;
 
 @Repository
 public interface ProjectsRepository extends JpaRepository<Projects, Long> {
-	List<Projects> findTop5ByOrderByCreatedDesc();
+	public List<Projects> findTop5ByOrderByCreatedDesc();
 	@Query(value="select Count(*) from Users_Projects where projects_id = ?1", nativeQuery=true)
-	int countingByProjectId(Long id);
+	public int countingByProjectId(Long id);
 
 }

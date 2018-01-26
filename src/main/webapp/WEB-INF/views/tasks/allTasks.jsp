@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -11,30 +10,28 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 <title>Insert title here</title>
 </head>
 <body>
 	<t:mainLayout>
 		<jsp:body>
-			<c:forEach items="${projectList}" var="pr" >
-					<div  class="center2">
-						<b>Project name: </b> <a>${pr.getName()}</a><br>
-						<b>Id: </b><a>${pr.getIdentifier()}</a><br>
-						<b>Created: </b><a>${pr.getCreated().toString().substring(0,19)}</a><br>
-						<hr>
-						<div>
-							<a href="<c:url value="/project/showProjectDetails/${pr.getId()}"/>" class="w3-btn w3-blue w3-border w3-round-large">Show Details</a>
-							<a  class="w3-btn w3-blue w3-border w3-round-large">Show Users</a>
-							<a href="<c:url value="/task/showProjectTasks/${pr.getId()}"/>" class="w3-btn w3-blue w3-border w3-round-large">Show Tasks</a>
-							<a class="w3-btn w3-green w3-border w3-round-large">Edit Project</a>
-						</div>
-						<hr class="style1">
+				<c:forEach items="${taskList}" var="pr" >
+				<div  class="center2">
+					<b>Task name: </b> <a>${pr.getSubject()}</a><br>
+					<b>Created: </b><a>${pr.getCreated().toString().substring(0,19)}</a><br>
+					<b>Project name: </b> <a>${pr.getProjects().getName() }</a>
+					<b>User login: </b> <a>${pr.getUsers().getLogin() }</a>
+					<hr>
+					<a>Priority: ${pr.getTaskPriority().getName()}</a><br>  
+					<a>Status: ${pr.getTaskStatus().getName()}</a>
+					<div>
+						<a href="<c:url value="task/showTaskDetails/${pr.getId()}"/>" class="w3-btn w3-blue w3-border w3-round-large">Show Task Details</a>
+						<a href="<c:url value=""/>" class="w3-btn w3-blue w3-border w3-round-large">Show Project</a>
+						<a class="w3-btn w3-green w3-border w3-round-large">Edit Task</a>
 					</div>
-	
-
+					<hr class="style1">
+					</div>
 				</c:forEach>
-					
 		</jsp:body>
 	</t:mainLayout>
 </body>

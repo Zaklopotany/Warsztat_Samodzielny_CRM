@@ -1,5 +1,7 @@
 package pl.coderslab.entity;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,12 +20,13 @@ public class Tasks {
 	@ManyToOne
 	private Projects projects;
 	@OneToOne
-	private TaskStatus TaskStatus;
+	private TaskStatus taskStatus;
 	@OneToOne
 	private TaskPriority taskPriority;
 	@OneToOne
 	@JoinColumn(name = "user_id")
 	private Users users;
+	private LocalDateTime created = LocalDateTime.now();
 
 	// get set
 	public Long getId() {
@@ -32,6 +35,14 @@ public class Tasks {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public LocalDateTime getCreated() {
+		return created;
+	}
+
+	public void setCreated(LocalDateTime created) {
+		this.created = created;
 	}
 
 	public String getSubject() {
@@ -59,11 +70,11 @@ public class Tasks {
 	}
 
 	public TaskStatus getTaskStatus() {
-		return TaskStatus;
+		return taskStatus;
 	}
 
 	public void setTaskStatus(TaskStatus taskStatus) {
-		TaskStatus = taskStatus;
+		this.taskStatus = taskStatus;
 	}
 
 	public TaskPriority getTaskPriority() {

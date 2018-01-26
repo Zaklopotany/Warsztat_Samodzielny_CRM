@@ -36,12 +36,12 @@ insert into TaskPriority (name,activity) value("3statuskurwa",0);
 insert into TaskPriority (name,activity) value("4tatuskurwa",0);
 insert into TaskPriority (name,activity) value("5statuskurwa",1);
 
-insert into Tasks (subject,TaskStatus_id,projects_id,taskPriority_id,user_id) value ('1kupon',1,1,1,1);
-insert into Tasks (subject,TaskStatus_id,projects_id,taskPriority_id,user_id) value ('2kupon',2,2,2,2);
-insert into Tasks (subject,TaskStatus_id,projects_id,taskPriority_id,user_id) value ('3kupon',3,3,3,3);
-insert into Tasks (subject,TaskStatus_id,projects_id,taskPriority_id,user_id) value ('4kupon',4,4,4,1);
-insert into Tasks (subject,TaskStatus_id,projects_id,taskPriority_id,user_id) value ('5kupon',1,2,1,2);
-insert into Tasks (subject,TaskStatus_id,projects_id,taskPriority_id,user_id) value ('6kupon',1,6,1,4);
+insert into Tasks (subject,TaskStatus_id,projects_id,taskPriority_id,user_id,created) value ('1kupon',1,1,1,1,now());
+insert into Tasks (subject,TaskStatus_id,projects_id,taskPriority_id,user_id,created) value ('2kupon',2,2,2,2,now());
+insert into Tasks (subject,TaskStatus_id,projects_id,taskPriority_id,user_id,created) value ('3kupon',3,3,3,3,now());
+insert into Tasks (subject,TaskStatus_id,projects_id,taskPriority_id,user_id,created) value ('4kupon',4,4,4,1,now());
+insert into Tasks (subject,TaskStatus_id,projects_id,taskPriority_id,user_id,created) value ('5kupon',1,2,1,2,now());
+insert into Tasks (subject,TaskStatus_id,projects_id,taskPriority_id,user_id,created) value ('6kupon',1,6,1,4,now());
 
 insert into Activity values(null,now(),'1description','1header',1,1,1)
 insert into Activity values(null,now(),'2description','2header',1,1,1)

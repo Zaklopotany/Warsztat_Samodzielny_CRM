@@ -38,6 +38,7 @@ public class TaskStatus {
 	public void setActivity(boolean activity) {
 		this.activity = activity;
 	}
+	
 
 	public String getSortingOrder() {
 		return sortingOrder;

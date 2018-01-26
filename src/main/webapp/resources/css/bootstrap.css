@@ -8896,9 +8896,9 @@ a.text-dark:focus, a.text-dark:hover {
   h3 {
     page-break-after: avoid;
   }
-  .navbar {
+ /*  .navbar {
     display: none;
-  }
+  } */
   .badge {
     border: 1px solid #000;
   }
