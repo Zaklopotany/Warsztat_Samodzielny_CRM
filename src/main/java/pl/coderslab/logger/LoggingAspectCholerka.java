@@ -8,9 +8,8 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
-/*@Component
+@Component
 @Aspect
-*/
 public class LoggingAspectCholerka {
 	
 	 private Logger logger = Logger.getLogger(LoggingAspectCholerka.class.getName());
