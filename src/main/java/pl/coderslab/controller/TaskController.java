@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttribute;
 
 import pl.coderslab.entity.Tasks;
+import pl.coderslab.entity.Users;
 import pl.coderslab.repository.ProjectsRepository;
 import pl.coderslab.repository.TaskPriorityRepository;
 import pl.coderslab.repository.TaskStatusRepository;
 import pl.coderslab.repository.TasksRepository;
+import pl.coderslab.repository.UsersRepository;
 
 @Controller
 @RequestMapping("/task")
@@ -29,6 +30,9 @@ public class TaskController {
 	private TaskPriorityRepository priorityRep;
 	@Autowired
 	private TaskStatusRepository statusRep;
+	@Autowired
+	private UsersRepository userRep;
+	
 	
 	//show task list of project
 	@GetMapping("/showProjectTasks/{id}")
@@ -69,8 +73,9 @@ public class TaskController {
 		if(result.hasErrors()) {
 			return "tasks/addTask";
 		}
-		//dodać usera i savowanie
-//		taskRep.save(task);
+		Users user = userRep.findOne(new Long(1));
+		task.setUsers(user);
+		taskRep.save(task);
 		return "redirect:/task/showAllTasks";
 	}
 }

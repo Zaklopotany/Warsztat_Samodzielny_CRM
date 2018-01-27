@@ -31,6 +31,8 @@ import org.springframework.web.servlet.view.JstlView;
 @EnableAspectJAutoProxy
 public class AppConfiguration extends WebMvcConfigurerAdapter {
 	
+	
+	
 	@Bean
 	public LocalEntityManagerFactoryBean entityManagerFactory() {
 		LocalEntityManagerFactoryBean emfb = new LocalEntityManagerFactoryBean();
