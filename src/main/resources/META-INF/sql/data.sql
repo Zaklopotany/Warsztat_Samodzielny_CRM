@@ -1,11 +1,11 @@
-insert into Users (login,name,password) values('miwe112rtchal','pr3647ychal','asdas');
-insert into Users (login,name,password) values('miw123ertchal','pr345ychal','asdas');
-insert into Users (login,name,password) values('mi4d23fgchal','pry4563chal','asdas');
-insert into Users (login,name,password) values('mis12fdhchal','prgchnfychal','asdas');
-insert into Users (login,name,password) values('mi344chal','prytherhchal','asdas');
-insert into Users (login,name,password) values('m2r53ichal','prrdthychal','asdas');
-insert into Users (login,name,password) values('mig3245chal','pr456ychal','asdas');
-insert into Users (login,name,password) values('mi34chal','pr3456ychal','asdas');
+insert into Users (login,name,password) values('miwe112rtchal','pr3647ychal','311FC486C10A0CA2D9D62DEBB2B81DA04BF423B9E1285FBDD26054E8B4590DFE');
+insert into Users (login,name,password) values('miw123ertchal','pr345ychal','311FC486C10A0CA2D9D62DEBB2B81DA04BF423B9E1285FBDD26054E8B4590DFE');
+insert into Users (login,name,password) values('mi4d23fgchal','pry4563chal','311FC486C10A0CA2D9D62DEBB2B81DA04BF423B9E1285FBDD26054E8B4590DFE');
+insert into Users (login,name,password) values('mis12fdhchal','prgchnfychal','311FC486C10A0CA2D9D62DEBB2B81DA04BF423B9E1285FBDD26054E8B4590DFE');
+insert into Users (login,name,password) values('mi344chal','prytherhchal','311FC486C10A0CA2D9D62DEBB2B81DA04BF423B9E1285FBDD26054E8B4590DFE');
+insert into Users (login,name,password) values('m2r53ichal','prrdthychal','311FC486C10A0CA2D9D62DEBB2B81DA04BF423B9E1285FBDD26054E8B4590DFE');
+insert into Users (login,name,password) values('jolo','pr456ychal','311FC486C10A0CA2D9D62DEBB2B81DA04BF423B9E1285FBDD26054E8B4590DFE');
+insert into Users (login,name,password) values('michal','pr3456ychal','311FC486C10A0CA2D9D62DEBB2B81DA04BF423B9E1285FBDD26054E8B4590DFE');
 
 insert into Projects (created, description, activity,name) values (now(), 'asdfdghdfasd',1,'adsf3452asdfasdfwe');
 insert into Projects (created, description, activity,name) values (now(), 'adfghsddfasd',1,'adsfasdf34asdfwe');

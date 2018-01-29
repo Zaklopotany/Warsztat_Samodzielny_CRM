@@ -17,6 +17,8 @@ public interface UsersRepository extends JpaRepository<Users, Long> {
 	@Query(value="Select p.* from Users p inner join Users_Projects up on p.id = up.users_id where up.projects_id = ?1", nativeQuery=true)
 	List<Users> getProjectUsers(Long id);
 
-	
+	Users findOneByLogin(String login);
+	Users findOneById(Long id);
+	Users findOneByLoginAndPassword(String login, String password);
 
 }

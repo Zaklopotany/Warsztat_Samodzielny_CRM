@@ -3,12 +3,12 @@ package pl.coderslab.appConfig;
 import java.util.Locale;
 
 import javax.persistence.EntityManagerFactory;
+import javax.servlet.Filter;
 import javax.validation.Validator;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
@@ -23,14 +23,14 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
+import pl.coderslab.beans.filter.AuthenticationFilter;
+
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"pl.coderslab", "pl.coderslab.controller"})
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "pl.coderslab.repository")
-@EnableAspectJAutoProxy
+@ComponentScan(basePackages = {"pl.coderslab", "pl.coderslab.controller"})
+@EnableJpaRepositories(basePackages = {"pl.coderslab.repository"})
 public class AppConfiguration extends WebMvcConfigurerAdapter {
-	
 	
 	
 	@Bean
@@ -71,5 +71,11 @@ public class AppConfiguration extends WebMvcConfigurerAdapter {
 	@Bean
 	public Validator validator() {
 		return new LocalValidatorFactoryBean();
+	}
+	
+	@Bean
+	public Filter authenticationFilter() {
+	    AuthenticationFilter authenticationFilter = new AuthenticationFilter();
+	    return authenticationFilter;
 	}
 }

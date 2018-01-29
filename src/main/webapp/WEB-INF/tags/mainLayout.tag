@@ -23,8 +23,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-	<div id="pageheader" class="jumbotron text-center">
-		<h1>Bom bom - super szybka aplikacja</h1>
+	<div class="text-center main-page-div">
+		<img alt="ss" style="height:300px; width:100%" class="img-fluid" src="http://www.air-worldwide.com/uploadedImages/Models/Cyber/cyber_tool.jpg">
+<!-- 		<h1>Bom bom - super szybka aplikacja</h1> -->
 		<jsp:invoke fragment="header" />
 	</div>
 
@@ -72,7 +73,7 @@
 				</div>
 				
 					<div class="row">
-						<div class="col-sm-7">
+						<div class="col-sm-9">
 							<jsp:doBody />
 						</div>
 						<div class="col-sm-3">

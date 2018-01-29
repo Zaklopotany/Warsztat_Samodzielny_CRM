@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import pl.coderslab.entity.Tasks;
 import pl.coderslab.entity.Users;
@@ -17,7 +18,7 @@ import pl.coderslab.repository.ProjectsRepository;
 import pl.coderslab.repository.TaskPriorityRepository;
 import pl.coderslab.repository.TaskStatusRepository;
 import pl.coderslab.repository.TasksRepository;
-import pl.coderslab.repository.UsersRepository;
+import pl.coderslab.service.ProjectService;
 
 @Controller
 @RequestMapping("/task")
@@ -31,7 +32,7 @@ public class TaskController {
 	@Autowired
 	private TaskStatusRepository statusRep;
 	@Autowired
-	private UsersRepository userRep;
+	private ProjectService PSI;
 	
 	
 	//show task list of project
@@ -64,18 +65,16 @@ public class TaskController {
 		model.addAttribute("projectList", projectRep.findAll());
 		model.addAttribute("priorityList", priorityRep.findByActivity(true));
 		model.addAttribute("statusList", statusRep.findByActivity(true));
-		
 		return "tasks/addTask";
 	}
 	
 	@PostMapping("/add")
-	public String saveMessage(@Valid Tasks task, BindingResult result) {
+	public String saveMessage(@Valid Tasks task, BindingResult result, @SessionAttribute("user") Users user) {
 		if(result.hasErrors()) {
 			return "tasks/addTask";
 		}
-		Users user = userRep.findOne(new Long(1));
 		task.setUsers(user);
-		taskRep.save(task);
+		PSI.addNewTask(task);
 		return "redirect:/task/showAllTasks";
 	}
 }

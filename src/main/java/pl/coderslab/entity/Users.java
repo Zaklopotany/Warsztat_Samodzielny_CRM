@@ -13,6 +13,8 @@ import javax.persistence.ManyToMany;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import pl.coderslab.beans.Encoding;
+
 @Entity
 public class Users {
 	@Id
@@ -67,7 +69,8 @@ public class Users {
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		this.password = Encoding.encodePassToString(password);
+
 	}
 
 	public Set<Projects> getProjects() {
@@ -76,6 +79,11 @@ public class Users {
 
 	public void setProjects(Set<Projects> projects) {
 		this.projects = projects;
+	}
+	
+	@Override
+	public String toString() {
+		return this.login;
 	}
 
 }

@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
 @Entity
@@ -24,7 +25,9 @@ public class Projects {
 	private String identifier;
 	@ManyToMany(mappedBy = "projects")
 	Set<Users> users = new HashSet<>();
-	private boolean activity;
+	private boolean activity = true;
+	@OneToOne
+	private Users creator;
 	@Transient
 	private int tasksNumber;
 	@Transient
@@ -41,6 +44,15 @@ public class Projects {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	
+	public Users getCreator() {
+		return creator;
+	}
+
+	public void setCreator(Users creator) {
+		this.creator = creator;
 	}
 
 	public int getTasksNumber() {
@@ -96,7 +108,7 @@ public class Projects {
 		this.users = users;
 	}
 
-	public boolean setActivity() {
+	public boolean getActivity() {
 		return activity;
 	}
 

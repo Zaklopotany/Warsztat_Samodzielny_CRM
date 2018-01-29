@@ -6,6 +6,19 @@
     padding: 10px;
 }
 
+.main-page-div {
+	overflow: hidden;
+	display:inline-block;
+	height:2%;
+	width:100%;
+}
+.img1 {
+	float:center;
+    max-width: 70%;
+	max-height: 10%;
+    object-fit: contain;
+}
+
 .center2 {
     margin: auto;	
     width: 90%;	
@@ -35,6 +48,14 @@ textarea {
     width: 100%;
     height: auto;
     margin-bottom:1em;
+}
+
+.rcorners-activity {
+    border-radius: 3px;
+    background: #e2e2e2;
+    padding: 10px;
+    margin-bottom:1em;
+
 }
 
 #commentsId {

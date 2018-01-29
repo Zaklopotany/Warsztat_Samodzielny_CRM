@@ -17,15 +17,38 @@
 		<jsp:attribute name="option">
 			<div class="flex-column">
 				<div>
-					<p>Recent Activities</p>
+					<p class="text-xl-center"><b>RECENT ACTIVITIES</b></p>
 				</div>		
 				<c:forEach items="${activityList}" var="al">
-					<div>
-						<a>${al.getHeader()}</a><br>
-						<a>${al.getCreated()}</a><br>
-						<a>${al.getUser().getLogin()}</a><br>
-						<a>${al.getHeader()}</a><br>
-						<a>${al.getDescription()}</a><br>
+					<div class ="rcorners-activity center2">
+						<c:choose>
+							<c:when test="${al.getTasks() == null && al.getProjects() != null}">
+								<p style="color:#046818" class="text-center-my"><b>${al.getHeader()}</b></p>
+								<hr>
+								Date: <a>${al.getCreated()}</a><br>
+								User: <a>${al.getUser().getLogin()}</a><br>
+								<a class="btn btn-block w3-black" href="<c:url value="/project/showProjectDetails/${al.getProjects().getId()}"/>">Project details</a>
+							</c:when>
+							<c:when test="${al.getTasks() != null && al.getProjects() == null}">
+								<p style="color:#30e855" class="text-center-my"><b>${al.getHeader()}</b></p>
+								<hr>
+								Date: <a>${al.getCreated()}</a><br>
+								User: <a>${al.getUser().getLogin()}</a><br>
+								Project: <a>${al.getTasks().getProjects().getName()}</a><br>
+								<a class="btn btn-block w3-black" href="<c:url value="/task/showTaskDetails/${al.getTasks().getId()}"/>">Task details</a>							
+							</c:when>
+							<c:when test="${al.getTasks() != null && al.getProjects() != null}">
+								<p style="color:#359cea" class="text-center-my"><b>${al.getHeader()}</b></p>
+								<hr>
+								Date: <a>${al.getCreated()}</a><br>
+								User: <a>${al.getUser().getLogin()}</a><br>
+								Task: <a> ${al.getTasks().getSubject() }</a><br>
+								Project: <a>${al.getProjects().getName()}</a><br>
+								New status: <a>${al.getDescription()}</a>
+								<a class="btn btn-block w3-black" href="<c:url value="/task/showTaskDetails/${al.getTasks().getId()}"/>">Task details</a>														
+								<a class="btn btn-block w3-black" href="<c:url value="/project/showProjectDetails/${al.getProjects().getId()}"/>">Project details</a>
+							</c:when>
+						</c:choose>
 					</div>
 				</c:forEach>
 			</div>

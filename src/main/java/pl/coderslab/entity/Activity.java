@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Activity {
@@ -18,16 +18,16 @@ public class Activity {
 	private String header;
 	private String description;
 
-	@OneToOne
-	@JoinColumn(name = "user_id")
+	@ManyToOne
+	@JoinColumn(name = "user_id", nullable = false)
 	private Users user;
 
-	@OneToOne
-	@JoinColumn(name = "project_id")
+	@ManyToOne
+	@JoinColumn(name = "project_id", nullable =true)
 	private Projects projects;
-
-	@OneToOne
-	@JoinColumn(name = "task_id")
+	
+	@ManyToOne
+	@JoinColumn(name = "task_id", nullable =true)
 	private Tasks tasks;
 
 	// get set
@@ -37,6 +37,15 @@ public class Activity {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Tasks getTasks() {
+		return tasks;
+	}
+
+	public Activity setTasks(Tasks tasks) {
+		this.tasks = tasks;
+		return this;
 	}
 
 	public LocalDateTime getCreated() {
@@ -51,41 +60,36 @@ public class Activity {
 		return header;
 	}
 
-	public void setHeader(String header) {
-		this.header = header;
+	public Activity setHeader(String header) {
+		this.header= header;
+		return this;
 	}
 
 	public String getDescription() {
 		return description;
 	}
 
-	public void setDescription(String description) {
+	public Activity setDescription(String description) {
 		this.description = description;
+		return this;
 	}
 
 	public Users getUser() {
 		return user;
 	}
 
-	public void setUser(Users user) {
+	public Activity setUser(Users user) {
 		this.user = user;
+		return this;
 	}
 
 	public Projects getProjects() {
 		return projects;
 	}
 
-	public void setProjects(Projects projects) {
+	public Activity setProjects(Projects projects) {
 		this.projects = projects;
+		return this;
 	}
-
-	public Tasks getTasks() {
-		return tasks;
-	}
-
-	public void setTasks(Tasks tasks) {
-		this.tasks = tasks;
-	}
-
 
 }
